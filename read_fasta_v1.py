@@ -2,14 +2,15 @@ import sys
 
 def read_fasta(filename):
     sequence = ''
-    f = open ('ae.fa')
+    f = open (filename)
     for line in f:
         line = line.strip()
         if not'>' in line:
             sequence = sequence + line
     f.close() 
     return sequence
-print (read_fasta('sys.argv[1]'))
-#  python read_fasta_v2.py
-# sys.arg
-#  ['read_fasta_v2.py', 'ae.fa']
+if len(sys.argv) <  2:
+	print ('Usage: ', sys.argv[0], '<sequence.fa>'
+	exit(1) 
+print (read_fasta(sys.argv[1]))
+
